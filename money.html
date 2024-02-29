@@ -2,110 +2,199 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monster-Coins</title>
-    <style>
-        body {
-            background-color: #bcc58d;
-            color: #29222d;
-            font-size: 150%;
-            font-family: serif;
-        }
-
-        #instructions {
-            font-weight: bold;
-        }
-
-        #locations,
-        #score,
-        #help {
-            margin-top: 10px;
-        }
-
-        .row {
-            display: flex;
-            padding-left: 20%;
-            margin-bottom: 10px;
-        }
-
-        .location {
-            width: 80px;
-            height: 80px;
-            margin: 5px;
-            border: 1px solid black;
-            background-color: rgb(153, 67, 67);
-            position: relative;
-        }
-
-        .location img {
-            display: flex;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
 </head>
-<body>
-    <div class="container" style="background-color:rgb(232, 158, 171);">Click on the locations to find coins, beware the monster!
-    </div><br>
-    <div class="container" style="background-color:rgb(158, 158, 183);" id="locations">Number of locations checked is zero</div>
-    <br>
-    <div class="container" style="background-color:rgb(182, 128, 146);" id="score">Score is zero.</div><br>
-    <div class="container" style="background-color:rgb(178, 123, 178);">Click fro help</div><br>
-    <div class="container" style="background-color:rgb(96, 132, 132);" id="help">Help report.</div><br>
-    <hr>
-  
-    <div class="row" id="row1">
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
+
+<body style="background-color: #7eb4b9; color: #456357; font-family: cursive;">
+    <div class="container">
+        <h1 class="my-3">Find the coins by Maneesha</h1>
+        <p class="fw-semibold">Click on the locations to find coins, beware the monster</p>
+        <div class="row1">
+            <div class="col-4">
+                <p id="locations">Number of locations checked is zero.</p>
+            </div>
+        </div>
+            <div class="row2">
+            <div class="col-4">
+                <p id="score">Score is zero</p>
+            </div>
+        </div>
+            <div class="row3">
+            <div class="col-4">
+                <div class="d-flex gap-4">
+                    <p onclick="help()">Click for help</p>
+                    <p id="help">Help report</p>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
     </div>
-    <div class="row" id="row2">
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
+    <button class="btn" style="padding: 1.5%; margin-bottom: 1%; margin-left: 8% ; background-color: #4F5B67; color: #FAE2E0;"
+    onclick="newGame()">New game</button>
+    <div class="container">
+        <div class="gameboard">
+            <div class="gameboard-row1">
+                <img src="building.jpg" alt="building1" style="margin-bottom: 0.3%;" height="50" id="img0" onclick="check(0)" />
+                <img src="building.jpg" alt="building2" style="margin-bottom: 0.3%;" height="50" id="img1" onclick="check(1)" />
+                <img src="building.jpg" alt="building3" style="margin-bottom: 0.3%;" height="50" id="img2" onclick="check(2)" />
+                <img src="building.jpg" alt="building4" style="margin-bottom: 0.3%;" height="50" id="img3" onclick="check(3)" />
+                <img src="building.jpg" alt="building5" style="margin-bottom: 0.3%;" height="50" id="img4" onclick="check(4)" />
+            </div>
+            <div class="gameboard-row2">
+                <img src="building.jpg" alt="building6" style="margin-bottom: 0.3%;" height="50" id="img5" onclick="check(5)" />
+                <img src="building.jpg" alt="building7" style="margin-bottom: 0.3%;" height="50" id="img6" onclick="check(6)" />
+                <img src="building.jpg" alt="building8" style="margin-bottom: 0.3%;" height="50" id="img7" onclick="check(7)" />
+                <img src="building.jpg" alt="building9" style="margin-bottom: 0.3%;" height="50" id="img8" onclick="check(8)" />
+                <img src="building.jpg" alt="building10" style="margin-bottom: 0.3%;" height="50" id="img9" onclick="check(9)" />
+            </div>
+            <div class="gameboard-row3">
+                <img src="building.jpg" alt="building11" style="margin-bottom: 0.3%;" height="50" id="img10" onclick="check(10)" />
+                <img src="building.jpg" alt="building12" style="margin-bottom: 0.3%;" height="50" id="img11" onclick="check(11)" />
+                <img src="building.jpg" alt="building13" style="margin-bottom: 0.3%;" height="50" id="img12" onclick="check(12)" />
+                <img src="building.jpg" alt="building14" style="margin-bottom: 0.3%;" height="50" id="img13" onclick="check(13)" />
+                <img src="building.jpg" alt="building15" style="margin-bottom: 0.3%;" height="50" id="img14" onclick="check(14)" />
+            </div>
+            <div class="gameboard-row4">
+                <img src="building.jpg" alt="building16" style="margin-bottom: 0.3%;" height="50" id="img15" onclick="check(15)" />
+                <img src="building.jpg" alt="building17" style="margin-bottom: 0.3%;" height="50" id="img16" onclick="check(16)" />
+                <img src="building.jpg" alt="building18" style="margin-bottom: 0.3%;" height="50" id="img17" onclick="check(17)" />
+                <img src="building.jpg" alt="building19" style="margin-bottom: 0.3%;" height="50" id="img18" onclick="check(18)" />
+                <img src="building.jpg" alt="building20" style="margin-bottom: 0.3%;" height="50" id="img19" onclick="check(19)" />
+            </div>
+            <div class="gameboard-row5">
+                <img src="building.jpg" alt="building21" style="margin-bottom: 0.3%;" height="50" id="img20" onclick="check(20)" />
+                <img src="building.jpg" alt="building22" style="margin-bottom: 0.3%;" height="50" id="img21" onclick="check(21)" />
+                <img src="building.jpg" alt="building23" style="margin-bottom: 0.3%;" height="50" id="img22" onclick="check(22)" />
+                <img src="building.jpg" alt="building24" style="margin-bottom: 0.3%;" height="50" id="img23" onclick="check(23)" />
+                <img src="building.jpg" alt="building25" style="margin-bottom: 0.3%;" height="50" id="img24" onclick="check(24)" />
+            </div>
+            <div class="gameboard-row6">
+                <img src="building.jpg" alt="building26" style="margin-bottom: 0.3%;" height="50" id="img25" onclick="check(25)" />
+                <img src="building.jpg" alt="building27" style="margin-bottom: 0.3%;" height="50" id="img26" onclick="check(26)" />
+                <img src="building.jpg" alt="building28" style="margin-bottom: 0.3%;" height="50" id="img27" onclick="check(27)" />
+                <img src="building.jpg" alt="building29" style="margin-bottom: 0.3%;" height="50" id="img28" onclick="check(28)" />
+                <img src="building.jpg" alt="building30" style="margin-bottom: 0.3%;" height="50" id="img29" onclick="check(29)" />
+            </div>
+            <div class="gameboard-row7">
+                <img src="building.jpg" alt="building31" style="margin-bottom: 0.3%;" height="50" id="img30" onclick="check(30)" />
+                <img src="building.jpg" alt="building32" style="margin-bottom: 0.3%;" height="50" id="img31" onclick="check(31)" />
+                <img src="building.jpg" alt="building33" style="margin-bottom: 0.3%;" height="50" id="img32" onclick="check(32)" />
+                <img src="building.jpg" alt="building34" style="margin-bottom: 0.3%;" height="50" id="img33" onclick="check(33)" />
+                <img src="building.jpg" alt="building35" style="margin-bottom: 0.3%;" height="50" id="img34" onclick="check(34)" />
+            </div>
+        </div>
     </div>
-    <div class="row" id="row3">
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
     </div>
-    <div class="row" id="row4">
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-    </div>
-    <div class="row" id="row5">
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-    </div>
-    <div class="row" id="row6">
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-    </div>
-    <div class="row" id="row7">
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-        <div class="location"><img src="building.jpg" alt="Building"></div>
-    </div>
-    </body>
+</body>
+<script>
+    const ids = ["img0", "img1", "img2", "img3", "img4", "img5", "img6", "img7", "img8", "img9", "img10", "img11", "img12", "img13", "img14", "img15", "img16", "img17", "img18", "img19", "img20", "img21", "img22", "img23", "img24", "img25", "img26", "img27", "img28", "img29", "img30", "img31", "img32", "img33", "img34"];
+    let score = 0;
+    let locations = 0;
+    let lastLocation = 0;
+    let monsterLocation = 20;
+    let fancyCoinLocation = [2, 5, 14, 19, 23, 33]
+
+    let gameOver = false;
+
+    function newGame() {
+        score = 0;
+        const scoreEl = document.getElementById("score");
+        scoreEl.textContent = `Score is ${score}`;
+
+        locations = 0;
+        const locationsEl = document.getElementById("locations");
+        locationsEl.textContent = `Number of locations checked is ${locations}`;
+
+        lastLocation = 0;
+        monsterLocation = Math.floor(Math.random() * 35);
+        fancyCoinLocation = Array.from({ length: 6 }, () =>
+            Math.floor(Math.random() * 35)
+        ).filter((value, index, self) => self.indexOf(value) === index);
+
+        gameOver = false;
+
+        for (let i = 0; i < ids.length; i++) {
+            const img = document
+                .getElementById(ids[i])
+                .setAttribute("src", "building.jpg");
+        }
+    }
+    function check(position) {
+        if (gameOver) {
+            return;
+        }
+
+        const tileId = ids[position];
+        const img = document.getElementById(tileId);
+
+        if (position === monsterLocation) {
+            // check for the monster
+            img.setAttribute("src", "monstor.png");
+            gameOver = true;
+            score -= 5;
+        } else if (fancyCoinLocation.includes(position)) {
+            // check for the fancy coin
+            img.setAttribute("src", "fancy coin.jpg");
+            score += 3;
+        } else {
+            // regular coin
+            img.setAttribute("src", "coin.jpg");
+            score++;
+        }
+
+        const scoreEl = document.getElementById("score");
+        scoreEl.textContent = `Score is ${score}`;
+
+        lastLocation = position;
+        locations++;
+        const locationsEl = document.getElementById("locations");
+        locationsEl.textContent = `Number of locations checked is ${locations}`;
+    }
+
+    function help() {
+        const kinShipPositions = [
+            lastLocation - 1,
+            lastLocation + 1,
+            lastLocation + 5,
+            lastLocation - 5,
+        ];
+
+        const monsterRow = parseInt(monsterLocation / 5);
+        const currentRow = parseInt(lastLocation / 5);
+        const monsterRowDifference = monsterRow - currentRow;
+
+        const monsterColumn = monsterLocation % 5;
+        const currentColumn = lastLocation % 5;
+        const monsterColumnDifference = monsterColumn - currentColumn;
+
+        let helpText = "";
+
+        if (kinShipPositions.some((p) => fancyCoinLocation.includes(p))) {
+            helpText = "so close!";
+        } else if (
+            monsterRowDifference <= 1 &&
+            monsterRowDifference >= -1 &&
+            monsterColumnDifference <= 1 &&
+            monsterColumnDifference >= -1
+        ) {
+            helpText = "Grrr";
+        } else {
+            helpText = "all clear";
+        }
+        const helpEl = document.getElementById("help");
+        helpEl.textContent = helpText;
+    }
+</script>
 
 </html>

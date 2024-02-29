@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>divlist</title>
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            background-color: rgb(134, 88, 15);
+        }
+
+        .flex-container>div {
+            /*div children of the flex container*/
+            background-color: #f1f1f1;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 600px) {
+            .flex-container {
+                flex-direction: column;
+                background-color: green;
+            }
+        }
+    </style>
+</head>
+
+
+
+<body>
+
+    <h1>Maneesha builds list with divs.</h1>
+
+    <input id="input" type="text">
+    <button id="button" onclick="makeNewDiv()">Add end</button>
+
+    <button id="b1" onclick="addFront()">Add front</button>
+    <button id="b2" onclick="remove()">Remove</button>
+
+    <button id="swap" onclick="swapPositions()">Swap</button>
+
+    <div class="flex-container" id="target">
+        <div class="divlist" >row item 1</div>
+        <div class="divlist" >row item 2</div>
+        <div class="divlist">row item 3</div>
+    </div>
+
+
+
+    <script>
+
+
+        function makeNewDiv() {
+
+            let element = document.createElement("div")
+            element.innerHTML = document.getElementById("input").value;
+            element.className = "divlist";
+
+            let container = document.getElementById('target')
+            container.appendChild(element)
+        }
+
+
+        function remove() {
+            const divListItem = document.getElementsByClassName("divlist");
+            if (divListItem.length > 0) {
+                const middle = Math.floor(length / 2);
+                divListItem[middle].remove();
+            }
+        }
+
+        function addFront() {
+
+            let man = document.createElement("div")
+            man.innerHTML = document.getElementById("input").value;
+
+            let container = document.getElementById('target')
+            container.insertBefore(man, container.firstChild);
+
+        }
+
+        function swapPositions() {
+            let items = document.getElementsByClassName("divlist");
+            let itemLength = items.length;
+            let swapItem = document.getElementsByClassName("divlist")[Math.floor(Math.random()*itemLength)];
+            let divItem = document.getElementById("target")
+            divItem.insertBefore(swapItem,divItem.firstChild);
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Precision</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <h1> Maneesha Speedy Check</h1>
+    <div id="target">Your time: </div>
+    <div id="counter">Count: </div>
+
+    <button type="button" onclick="startTime()">Start Time.</button>
+    <button type="button" onclick="recordTime()">Stop Time.</button>
+
+
+
+    <script>
+
+        let stopTime = undefined;
+
+        function recordTime() {
+
+            stopTime = Date.now();
+            console.log(stopTime);
+
+        }
+
+        
+        function startTime() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() =>{
+                    document.getElementById("counter").innerHTML = `<div id="counter">Count:${i}</div>`
+                },((4-i)*1000))
+            }
+
+            setTimeout(()=>{
+                if(stopTime === undefined){
+                    document.getElementById("target").innerText = "To slow";
+                }else{
+                    stopTime2 = Date.now();
+                    let differenceTime = stopTime2 - stopTime;
+                    document.getElementById("target").innerHTML = ` <div id="target">Your time: ${differenceTime}</div>`
+                }
+            },4000)
+        }
+
+        
+
+    </script>
+
+</body>
+
+</html>
